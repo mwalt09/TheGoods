@@ -28,11 +28,15 @@ var db = require("./models");
 
 
 //require("./views/login.handlebars")(app);
-// console.log("logged in");
+console.log("logged in");
+
 // Import routes and give the server access to them.
-//var routes = require("./controllers/catsController.js");
-var routes = require("./controllers/goods_controller.js");
+
+var routes = require("./controllers/api-routes");
+// var routes = require("./public/css/goods_style.css");
 app.use("/", routes);
+
+
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
