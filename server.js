@@ -9,7 +9,9 @@ var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
@@ -21,7 +23,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our models
-var db = require("./models");
+var db = require("./models/goods.js");
 
 // Routes
 // ================================================================
@@ -35,8 +37,13 @@ var routes = require("./controllers/goods_controller.js");
 app.use("/", routes);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(port, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", port, port);
+db.sequelize.sync({ force: true }).then(function() {
+  return db.Items.create([
+    {itemName: "Trek Remedy 9"}
+    // , category: "Mountain Bike", owner: "Mikael Walters", location: "6001 Shepherd Mountain Cv Apt 107", pricePerHour: 5, itemPhoto: "http://forums.mtbr.com/attachments/29er-bikes/959460d1422471232-trek-remedy-9-8-report-img_1088.jpg", availability: true}
+  ]).then(function() {
+    app.listen(port, function() {
+      console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", port, port);
+    });
   });
 });
