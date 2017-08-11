@@ -45,12 +45,7 @@ app.use("/api", apiRoutes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: true }).then(function() {
-  return db.Items.create([
-    {itemName: "Trek Remedy 9"}
-    // , category: "Mountain Bike", owner: "Mikael Walters", location: "6001 Shepherd Mountain Cv Apt 107", pricePerHour: 5, itemPhoto: "http://forums.mtbr.com/attachments/29er-bikes/959460d1422471232-trek-remedy-9-8-report-img_1088.jpg", availability: true}
-  ]).then(function() {
     app.listen(port, function() {
       console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", port, port);
     });
-  });
 });
