@@ -32,9 +32,12 @@ console.log("logged in");
 
 // Import routes and give the server access to them.
 
-var routes = require("./controllers/api-routes");
+var htmlRoutes = require("./controllers/html-routes.js");
+var apiRoutes = require("./controllers/api-routes.js");
 // var routes = require("./public/css/goods_style.css");
-app.use("/", routes);
+app.use("/", htmlRoutes);
+console.log("we connected our html routes");
+app.use("/api", apiRoutes);
 
 
 

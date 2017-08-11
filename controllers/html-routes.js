@@ -1,23 +1,32 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-
+console.log("##############################\n");
+console.log("connected to html-routes");
 // Requiring path to so we can use relative routes to our HTML files
 
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+
 
   router.get("/", function(req, res) {
     //Insert Sequelize Query Here
+
+
       res.render("index");
   });
 
   router.get("/login", function(req, res) {
     //Insert Sequelize Query Here
       res.render("login");
+  });
+
+  // Route for logging user out
+  router.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
   });
 
 //
@@ -36,6 +45,6 @@ module.exports = function(app) {
 //     res.sendFile(path.join(__dirname, "../public/members.html"));
 //   });
 //
-};
+
 
 module.exports = router;
