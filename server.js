@@ -20,6 +20,6 @@ console.log("logged in");
 // Import routes and give the server access to them.
 
 var routes = require("./controllers/goods_controller.js");
-var routes = require("./public/css/goods_style.css");
+// var routes = require("./public/css/goods_style.css");
 app.use("/", routes);
 app.listen(port);
