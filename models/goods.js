@@ -1,6 +1,6 @@
 // Dependencies
 // npm install sequelize-mysql-timestamp
-const TIMESTAMP = require("sequelize-mysql-timestamp")(sequelize);
+// const TIMESTAMP = require("sequelize-mysql-timestamp")(sequelize);
 
 
 // Creating Goods model
@@ -26,14 +26,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
-    outTimeStamp: {
-      type: TIMESTAMP,
-      allowNull: false
-    },
-    inTimeStamp: {
-      type: TIMESTAMP,
-      allowNull: false
-    },
+    // outTimeStamp: {
+    //   type: TIMESTAMP,
+    //   allowNull: false
+    // },
+    // inTimeStamp: {
+    //   type: TIMESTAMP,
+    //   allowNull: false
+    // },
     totalCost: {
       type: DataTypes.DECIMAL(10,2),
     },
@@ -45,5 +45,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE
     }
   });
+
+  Items.associate = function(models) {
+    Items.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Items;
 };
