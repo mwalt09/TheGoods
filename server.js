@@ -1,3 +1,4 @@
+
 var exphbs = require("express-handlebars");
 var express = require("express");
 var app = express();
@@ -22,3 +23,4 @@ var routes = require("./controllers/goods_controller.js");
 var routes = require("./public/css/goods_style.css");
 app.use("/", routes);
 app.listen(port);
+
