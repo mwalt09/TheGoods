@@ -1,3 +1,4 @@
+
 var exphbs = require("express-handlebars");
 var express = require("express");
 var app = express();
@@ -20,3 +21,4 @@ console.log("logged in");
 var routes = require("./controllers/goods_controller.js");
 app.use("/", routes);
 app.listen(port);
+
