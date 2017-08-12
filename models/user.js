@@ -49,17 +49,17 @@ module.exports = function(sequelize, DataTypes) {
     //paments stuff needed here
     rating:{
       type: DataTypes.STRING,
-      allowNull: false,
-      validate:{
-        len:[1]
-      }
+      // allowNull: false,
+      // validate:{
+      //   len:[1]
+      // }
     },
     profilepicture:{
       type: DataTypes.STRING,
-      allowNull: false,
-      validate:{
-        len:[1]
-      }
+      // allowNull: false,
+      // validate:{
+      //   len:[1]
+      // }
     }
 
 

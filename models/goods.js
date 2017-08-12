@@ -7,7 +7,7 @@ var sequelize = require("sequelize");
 
 // Creating Goods model
 module.exports = function(sequelize, DataTypes) {
-  var Items = sequelize.define("Items", {
+  var Item = sequelize.define("Item", {
     itemName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -48,13 +48,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Items.associate = function(models) {
-    Items.belongsTo(models.User, {
+  Item.associate = function(models) {
+    Item.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Items;
+  return Item;
 };
