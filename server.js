@@ -52,7 +52,7 @@ db.sequelize.sync({ force: true }).then(function() {
   .then(function() {
     return db.Item.bulkCreate([
       {itemName: "Trek Remedy 9.8", category: "Mountain Bike", owner: "Mikael Walters", location: "6001 Shepherd Mountain Cv Apt 107", pricePerHour: 5, itemPhoto: "http://forums.mtbr.com/attachments/29er-bikes/959460d1422471232-trek-remedy-9-8-report-img_1088.jpg", availability: true, UserId: 1}
-    ])
+    ]);
   })
   .then(function() {
     app.listen(port, function() {
