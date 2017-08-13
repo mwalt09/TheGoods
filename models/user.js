@@ -49,21 +49,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    //paments stuff needed here
-    // rating:{
-    //   type: DataTypes.STRING,
-    //   // allowNull: false,
-    //   // validate:{
-    //   //   len:[1]
-    //   // }
-    // },
-    // profilepicture:{
-    //   type: DataTypes.STRING,
-    //   // allowNull: false,
-    //   // validate:{
-    //   //   len:[1]
-    //   // }
-    // }
+    // paments stuff needed here
+    rating:{
+      type: DataTypes.STRING,
+      // allowNull: false,
+      // validate:{
+      //   len:[1]
+      // }
+    },
+    profilepicture:{
+      type: DataTypes.STRING,
+      // allowNull: false,
+      // validate:{
+      //   len:[1]
+      // }
+    }
   });
 
   User.associate = function(models) {
