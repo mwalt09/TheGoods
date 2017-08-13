@@ -33,6 +33,7 @@ var path = require("path");
     });
   });
 
+  
 
   // Route for getting some data about our user to be used client side
   router.get("/api/user_data", function(req, res) {
@@ -50,7 +51,7 @@ var path = require("path");
     }
   });
 
- //######################################## 
+ //########################################
 //controller for item management
   router.post("/api/goods", function(req, res) {
     db.Items.create({
@@ -90,4 +91,3 @@ var path = require("path");
    //########################################
 
 module.exports = router;
-
