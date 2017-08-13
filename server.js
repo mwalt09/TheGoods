@@ -41,6 +41,7 @@ app.use("/api", apiRoutes);
 
 
 
+
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(port, function() {
