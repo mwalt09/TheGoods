@@ -22,7 +22,10 @@ var path = require("path");
   router.post("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
+      address: req.body.address,
+      username: req.body.username,
       password: req.body.password
     }).then(function() {
       res.redirect(307, "/api/login");
