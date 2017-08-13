@@ -1,6 +1,5 @@
 // Dependencies
 // npm install sequelize-mysql-timestamp
-var sequelize = require("sequelize");
 // const TIMESTAMP = require("sequelize-mysql-timestamp")(sequelize);
 
 

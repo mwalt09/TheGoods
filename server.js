@@ -55,4 +55,5 @@ db.sequelize.sync({ force: true }).then(function() {
     app.listen(port, function() {
       console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", port, port);
     });
+  });
 });
