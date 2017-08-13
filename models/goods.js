@@ -1,5 +1,9 @@
 // Dependencies
 // npm install sequelize-mysql-timestamp
+<<<<<<< HEAD
+=======
+// var sequelize = require("sequelize");
+>>>>>>> myWorkingBranch
 // const TIMESTAMP = require("sequelize-mysql-timestamp")(sequelize);
 
 
