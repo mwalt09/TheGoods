@@ -37,6 +37,7 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
+  
 
 // Route for getting some data about our user to be used client side
 router.get("/api/user_data", function(req, res) {
@@ -53,7 +54,7 @@ router.get("/api/user_data", function(req, res) {
     }
 });
 
-//######################################## 
+
 //controller for item management
 router.post("/api/goods", function(req, res) {
     db.Items.create({
@@ -90,6 +91,7 @@ router.put("/api/goods", function(req, res) {
 });
 
 //########################################
+
 
 //items search api routing
 
@@ -167,3 +169,4 @@ router.get("/api/goods", function(req, res) {
     });
 });
 module.exports = router;
+
