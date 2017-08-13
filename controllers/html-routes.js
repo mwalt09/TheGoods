@@ -41,6 +41,10 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
     res.redirect("/");
   });
 
+  router.get("/newUser", function(req, res){
+    res.render("newUser");
+  });
+
 //
 //
 //   app.get("/login", function(req, res) {
