@@ -10,10 +10,14 @@
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
         <nav class="mdl-navigation">
+
           <a class="mdl-navigation__link" id="category" href=""><i class="material-icons">list</i></a>
           <a class="mdl-navigation__link" id="search" href=""><i class="material-icons">search</i></a>
           <a class="mdl-navigation__link" id="homeButton" href=""><i class="material-icons">home</i></a>
-          <a class="mdl-navigation__link" id="logOutButton" href="/login">Log Out</a>
+          <form action="/logout" method="GET">
+            <input type="submit" value="Logout">
+          </form>
+
         </nav>
       </div>
 

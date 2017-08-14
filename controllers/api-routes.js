@@ -11,7 +11,7 @@ var path = require("path");
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
-router.post("/api/login", function(req, res) {
+router.post("/api/login", passport.authenticate("local"), function(req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
@@ -30,8 +30,10 @@ router.post("/api/signup", function(req, res) {
         username: req.body.username,
         password: req.body.password
     }).then(function() {
+        console.log("redirecting");
         res.redirect(307, "/api/login");
     }).catch(function(err) {
+        console.log("Houston we have a problem...");
         console.log(err);
         res.json(err);
         // res.status(422).json(err.errors[0].message);
@@ -169,4 +171,5 @@ router.get("/api/goods", function(req, res) {
         res.json(dbItems);
     });
 });
+
 module.exports = router;
