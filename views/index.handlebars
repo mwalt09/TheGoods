@@ -1,40 +1,18 @@
 <!-- Uses a transparent header that draws on top of the layout's background -->
 
-<div class="header">
-  <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--transparent">
-      <div class="mdl-layout__header-row ">
-        <!-- Title -->
-        <span class="mdl-layout-title">The Goods</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
-
-          <a class="mdl-navigation__link" id="category" href=""><i class="material-icons">list</i></a>
-          <a class="mdl-navigation__link" id="search" href=""><i class="material-icons">search</i></a>
-          <a class="mdl-navigation__link" id="homeButton" href=""><i class="material-icons">home</i></a>
-          <form action="/logout" method="GET">
-            <input type="submit" value="Logout">
-          </form>
-
-        </nav>
-      </div>
-
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Title</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
+  <nav>
+    <div class="nav-wrapper backColor">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
     </div>
-    <main class="mdl-layout__content">
-    </main>
-  </div>
-</div>
+  </nav>
+
+
+
 
 <!--*************** The item cards section ***********************-->
 <div class="containerIndex">
