@@ -26,6 +26,16 @@ body {
 
 
 
+.wrapper {
+  border-radius: 50px;
+}
+
+.mdl-navigation {
+  background-color: transparent;
+  height: 20px;
+  width: 100%;
+}
+
 /***************** Navbar section ****************/
 
 
@@ -47,7 +57,7 @@ i.material-icons {
 }
 
 i.material-icons:after {
-		content: "";
+		/*content: "";*/
 		width: 100%;
 		height: 100%;
 		border: solid 2px;
@@ -125,9 +135,21 @@ p {
 /************* The item cards section ***********/
 
 .containerIndex {
-  padding-top: 80px;
-  margin-left: 50px;
-  height: 500px;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 80px;
+  
+  width: 0 auto;
+}
+
+@media (min-width: 100px) and (max-width: 1280px) {#map {
+  border: 1px solid yellow;
+  width: 0 auto;
+  height: 400px;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 5px;
+}
 }
 
 .demo-card-square.mdl-card {
