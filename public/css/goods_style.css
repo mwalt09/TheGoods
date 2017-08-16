@@ -26,20 +26,17 @@ body {
 
 
 
-.wrapper {
-  border-radius: 50px;
-}
+
+
+
+
+/***************** Navbar section ****************/
 
 .mdl-navigation {
   background-color: transparent;
   height: 20px;
   width: 100%;
 }
-
-/***************** Navbar section ****************/
-
-
-
 
 .mdl-layout__header-row {
   padding-left: 25px;
@@ -138,11 +135,12 @@ p {
   margin-left: 7%;
   margin-right: 7%;
   margin-top: 80px;
-  
+
   width: 0 auto;
 }
 
-@media (min-width: 100px) and (max-width: 1280px) {#map {
+@media (min-width: 100px) and (max-width: 1280px) {
+  #map {
   border: 1px solid yellow;
   width: 0 auto;
   height: 400px;
@@ -163,6 +161,26 @@ p {
   background: #46B6AC;
 }
 /********* End of item cards section ************/
+
+.containerIndex {
+  width: 0 auto;
+  height: 0 auto;
+  border: 1px solid blue;
+}
+
+
+.descriptionBox {
+  width: 360px;
+  height: 400px;
+  /*margin-left: 34%;*/
+  margin-top: 10px;
+  background-color: white;
+  float: right;
+  border: 1px solid red;
+  }
+
+
+/*********** Item Results Page ******************/
 
 
 /*Footer*/
