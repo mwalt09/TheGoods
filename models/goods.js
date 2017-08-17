@@ -11,23 +11,23 @@ module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
     itemName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     owner: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     pricePerHour: {
       type: DataTypes.DECIMAL(6,2),
-      allowNull: false
+      allowNull: true
     },
     outTimeStamp: {
       type: DataTypes.DATE,
@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     itemPhoto: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     availability: {
       type: DataTypes.BOOLEAN,
@@ -53,7 +53,7 @@ module.exports = function(sequelize, DataTypes) {
   Item.associate = function(models) {
     Item.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
