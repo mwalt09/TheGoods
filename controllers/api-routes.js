@@ -72,26 +72,24 @@ router.put("/api/user_data", function(req, res) {
 //CONTROLLER FOR ITEM MANAGEMENT
 //POST to create new item
 router.post("/api/goods", function(req, res) {
-    db.Item.create({
-        itemName: req.body.itemName,
-        category: req.body.category,
-
-        description: req.body.description,
-
-        owner: req.body.owner,
-        location: req.body.location,
-
-        pricePerHour: req.body.pricePerHour,
-        itemPhoto: req.body.itemPhoto,
-        UserId: req.body.UserId
-    }).then(function(dbItems) {
+    console.log("we're about to post")
+    db.goods.create(req.body
+        // itemName: req.body.itemName,
+        // category: req.body.category,
+        // description: req.body.description,
+        // owner: req.body.owner,
+        // location: req.body.location,
+        // pricePerHour: req.body.pricePerHour,
+        // itemPhoto: req.body.itemPhoto,
+        // UserId: req.body.UserId
+    ).then(function(dbItems) {
         res.json(dbItems);
     });
 });
 
 // DELETE route for deleting Items
 router.delete("/api/goods/:id", function(req, res) {
-    db.Item.destroy({
+    db.goods.destroy({
         where: {
             id: req.params.id
         }
@@ -102,7 +100,7 @@ router.delete("/api/goods/:id", function(req, res) {
 
 // PUT route for updating items
 router.put("/api/goods", function(req, res) {
-    db.Item.update(
+    db.goods.update(
         req.body, {
             where: {
                 id: req.body.id
