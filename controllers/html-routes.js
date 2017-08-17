@@ -10,8 +10,8 @@ console.log("connected to html-routes");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
-
 router.get("/", isAuthenticated, function(req, res) {
+
     //Insert Sequelize Query Here
     if (req.user) {
         res.render("index");
