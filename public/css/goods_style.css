@@ -8,8 +8,6 @@ body {
   color: black;
 }
 
-
-
 .container {
   border: 1px solid white;
   text-align: center;
@@ -24,7 +22,46 @@ body {
   border-radius: 20px;
 }
 
+/*****************USER ITEM MANAGEMENT************/
+@import "compass/css3";
 
+.table-editable {
+  position: relative;
+  
+  .glyphicon {
+    font-size: 20px;
+  }
+}
+
+.table-remove {
+  color: #700;
+  cursor: pointer;
+  
+  &:hover {
+    color: #f00;
+  }
+}
+
+.table-up, .table-down {
+  color: #007;
+  cursor: pointer;
+  
+  &:hover {
+    color: #00f;
+  }
+}
+
+.table-add {
+  color: #070;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 0;
+  
+  &:hover {
+    color: #0b0;
+  }
+}
 
 /***************** Navbar section ****************/
 .header {

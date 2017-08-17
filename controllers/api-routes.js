@@ -40,8 +40,6 @@ router.post("/api/signup", function(req, res) {
     });
 });
 
-
-
 // Route for getting some data about our user to be used client side
 router.get("/api/user_data", function(req, res) {
     if (!req.user) {
@@ -57,12 +55,26 @@ router.get("/api/user_data", function(req, res) {
     }
 });
 
+//PUT ROUTE FOR UPDATING USER INFO
+router.put("/api/user_data", function(req, res) {
+    db.User.update(
+        req.body, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(dbUsers) {
+        res.json(dbUsers);
+    });
+});
 
-//controller for item management
+
+//CONTROLLER FOR ITEM MANAGEMENT
+//POST to create new item
 router.post("/api/goods", function(req, res) {
     db.Items.create({
         itemName: req.body.itemName,
         category: req.body.category,
+        description: req.body.description,
         pricePerHour: req.body.pricePerHour,
         itemPhoto: req.body.itemPhoto
     }).then(function(dbItems) {
@@ -92,6 +104,26 @@ router.put("/api/goods", function(req, res) {
         res.json(dbItems);
     });
 });
+
+
+// GET to populate rented items
+//??WHERE ARE WE STORING WHO IS RENTING AN ITEM
+
+
+// GET to populate owned items
+router.get("/api/goods", function(req,res){
+      var query = {};
+    if (req.query.owner) {
+        query.owner = req.query.owner;
+    }
+    db.Items.findAll({
+        where: query,
+        include: [db.goods]
+    }).then(function(dbItems) {
+        res.json(dbItems);
+    });
+});
+
 
 //########################################
 

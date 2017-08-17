@@ -1,3 +1,126 @@
+var $TABLE = $('#table');
+var $BTN = $('#export-btn');
+var $EXPORT = $('#export');
+
+$('.table-add').click(function () {
+  var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+  $TABLE.find('table').append($clone);
+});
+
+$('.table-remove').click(function () {
+  $(this).parents('tr').detach();
+});
+
+$('.table-up').click(function () {
+  var $row = $(this).parents('tr');
+  if ($row.index() === 1) return; // Don't go above the header
+  $row.prev().before($row.get(0));
+});
+
+$('.table-down').click(function () {
+  var $row = $(this).parents('tr');
+  $row.next().after($row.get(0));
+});
+
+// A few jQuery helpers for exporting only
+jQuery.fn.pop = [].pop;
+jQuery.fn.shift = [].shift;
+
+$BTN.click(function () {
+  var $rows = $TABLE.find('tr:not(:hidden)');
+  var headers = [];
+  var data = [];
+  
+  // Get the headers (add special header logic here)
+  $($rows.shift()).find('th:not(:empty)').each(function () {
+    headers.push($(this).text().toLowerCase());
+  });
+  
+  // Turn all existing rows into a loopable array
+  $rows.each(function () {
+    var $td = $(this).find('td');
+    var h = {};
+    
+    // Use the headers from earlier to name our hash keys
+    headers.forEach(function (header, i) {
+      h[header] = $td.eq(i).text();   
+    });
+    
+    data.push(h);
+  });
+  
+  // Output the result
+  $EXPORT.text(JSON.stringify(data));
+});
+
+$('.item-return').click(function(){
+  $(this).parents('tr').detach();
+});
+
+
+$(document).ready(function(){
+    function popTable(){
+      
+
+
+
+
+
+      var row;
+        "<td>"+owner+"</td>"
+        "<td>"+name+"</td>"
+        "<td>"+location+"</td>"
+        "<td>"+category+"</td>"
+        "<td>"+price+"</td>"
+        "<td>"+checkoutTime+"</td>"
+        "<td>"+cost+"</td>"
+      
+      $ (".rentedItem").append(row);
+    }
+  })
+
+
+
+
+
+
+// //
+// $(document).ready(function() {
+//   function viewProducts() {
+//   // Initializes table and populates cells based on items within
+//   // bamazon.sql databes.
+//   var table = new Table({
+//     head: ["Item_ID", "Brand", "Product", "Department", "Price", "Quantity"],
+//     colWidths: [10, 15, 40, 15, 10, 10]
+//   });
+//   var query0 = "SELECT * FROM products";
+//   connection.query(query0, function(err, res) {
+//     if (err) throw err;
+//     // console.log(res);
+//     for (var i = 0; i < res.length; i++) {
+//       table.push(
+//         [res[i].item_id, res[i].brand, res[i].product_name, res[i].department_name, "$" + res[i].price, res[i].stock_quantity]
+//       );
+//     }
+//     console.log(table.toString());
+//     managerOptions();
+//   });
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+//!!!!New Items need to be added to DB
+
+
 $(document).ready(function() {
   // Getting a reference to the input field where user adds a new Item
   var $newItemInput = $("input.new-item");
@@ -29,29 +152,29 @@ $(document).ready(function() {
 // This function grabs items from the database and updates the view
   function getItems() {
     $.get("/api/goods", function(data) {
-      items = ; //data;
+      items = data;
       initializeRows();
     });
   }
 
   // This function deletes an Item when the user clicks the delete button
-  function deleteItem(event) {
-    event.stopPropagation();
-    var id = $(this).data("id");
-    $.ajax({
-      method: "DELETE",
-      url: "/api/goods/" + id
-    }).done(getItems);
-  }
+  // function deleteItem(event) {
+  //   event.stopPropagation();
+  //   var id = $(this).data("id");
+  //   $.ajax({
+  //     method: "DELETE",
+  //     url: "/api/goods/" + id
+  //   }).done(getItems);
+  // }
 
   // This function handles showing the input box for a user to edit an item
-  function editItem() {
+  //function editItem() {
     var currentItem = $(this).data("item");
     $(this).children().hide();
     $(this).children("input.edit").val(currentItem.text);
     $(this).children("input.edit").show();
     $(this).children("input.edit").focus();
-  }
+  //}
 
   // Toggles complete status
   function toggleComplete(event) {
@@ -72,13 +195,13 @@ $(document).ready(function() {
 
   // This function is called whenever an item is in edit mode and loses focus
   // This cancels any edits being made
-  function cancelEdit() {
-    var currentItem = $(this).data("item");
-    $(this).children().hide();
-    $(this).children("input.edit").val(currentItem.text);
-    $(this).children("span").show();
-    $(this).children("button").show();
-  }
+  // function cancelEdit() {
+  //   var currentItem = $(this).data("item");
+  //   $(this).children().hide();
+  //   $(this).children("input.edit").val(currentItem.text);
+  //   $(this).children("span").show();
+  //   $(this).children("button").show();
+  // }
 
   // This function constructs a item row
   function createNewRow(item) {
