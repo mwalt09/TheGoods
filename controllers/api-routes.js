@@ -75,12 +75,12 @@ router.post("/api/goods", function(req, res) {
     db.Item.create({
         itemName: req.body.itemName,
         category: req.body.category,
-<<<<<<< HEAD
+
         description: req.body.description,
-=======
+
         owner: req.body.owner,
         location: req.body.location,
->>>>>>> e2d1494de3bc0723696b116fd0911f46561d5d60
+
         pricePerHour: req.body.pricePerHour,
         itemPhoto: req.body.itemPhoto,
         UserId: req.body.UserId
