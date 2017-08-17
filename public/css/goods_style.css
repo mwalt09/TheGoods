@@ -18,7 +18,7 @@ body {
   margin-top: 50px;
   padding-bottom: 50px;
   background: white;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 20px;
 }
 
@@ -63,9 +63,20 @@ body {
   }
 }
 
-/***************** Navbar section ****************/
-.header {
 
+
+
+
+/***************** Navbar section ****************/
+
+.mdl-navigation {
+  background-color: transparent;
+  height: 20px;
+  width: 100%;
+}
+
+.mdl-layout__header-row {
+  padding-left: 25px;
 }
 
 i.material-icons {
@@ -80,7 +91,7 @@ i.material-icons {
 }
 
 i.material-icons:after {
-		content: "";
+		/*content: "";*/
 		width: 100%;
 		height: 100%;
 		border: solid 2px;
@@ -158,9 +169,22 @@ p {
 /************* The item cards section ***********/
 
 .containerIndex {
-  padding-top: 80px;
-  margin-left: 50px;
-  height: 500px;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 80px;
+
+  width: 0 auto;
+}
+
+@media (min-width: 100px) and (max-width: 1440px) {
+  #map {
+  /*border: 1px solid yellow;*/
+  width: 0 auto;
+  height: 400px;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 5px;
+}
 }
 
 .demo-card-square.mdl-card {
@@ -175,15 +199,29 @@ p {
 }
 /********* End of item cards section ************/
 
+.containerIndex {
+  width: 0 auto;
+  height: 0 auto;
+  border: 1px solid blue;
+}
+
+
+.descriptionBox {
+  width: 360px;
+  height: 400px;
+  /*margin-left: 34%;*/
+  margin-top: 10px;
+  background-color: white;
+  float: right;
+  border: 1px solid red;
+  }
+
+
+/*********** Item Results Page ******************/
+
 
 /*Footer*/
 
-.footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1px;
-  background-color: black;
-  text-align: center;
+.mdl-mini-footer {
+  padding: 16px 16px;
 }

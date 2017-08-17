@@ -1,43 +1,62 @@
 <div class="container">
     <h1>The Goods</h1>
     <!-- Numeric Textfield with Floating Label -->
-    <form action="/api/login" method="POST">
-        <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield floating-label"> -->
-        <input class="mdl-textfield__input" type="email" id="sample3">
-        <label class="mdl-textfield__label" for="sample3">Email</label>
+
+    <!-- <form action="/api/login" method="POST"> -->
+        <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> -->
+
+        <!-- <label class="mdl-textfield__label" for="sample3">Email</label> -->
+
         <!-- <input class="mdl-textfield__input" type="password" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4"> -->
-        <input class="mdl-textfield__input" type="password" id="sample4">
-        <label class="mdl-textfield__label" for="sample4">Password</label>
+
+        <!-- <label class="mdl-textfield__label" for="sample4">Password</label> -->
         <!-- <span class="mdl-textfield__error">Input is not a number!</span> -->
-        <input type="submit" value="Login">
+        <!-- <input type="submit" value="Login"> -->
         <!-- </div> -->
-    </form>
+    <!-- </form> -->
     <!-- This is the working form for user login -->
-    <form action="/api/login" method="POST">
-        Email:
+    <h4>Login</h4>
+
+      <form action="/api/login" method="POST">
         <br>
-        <input type="text" name="email" value="">
-        <br> Password:
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="email" name="email" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Email</label>
+        </div>
         <br>
-        <input type="text" name="password" value: "">
-        <br>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="password" name="password" id="sample4">
+          <label class="mdl-textfield__label" for="sample4">Password</label>
+        </div>
+        <br><input type="submit" value="Submit" id="submit">
+      </form>
+      <hr>
+
+
+
+
+
+
     <!-- Form to sign up -->
-    <button type="button" name="">Create Account</button>
-    <form action="#">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="email" id="#">
-            <label class="mdl-textfield__label" for="sample3">Email</label>
-        </div>
+
+    <form action="/newuser" method="GET">
+      <input type="submit" value="Create Account">
     </form>
-    <!-- Numeric Textfield with Floating Label -->
-    <form action="#">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="password" pattern="-?[0-9]*(\.[0-9]+)?" id="#">
-            <label class="mdl-textfield__label" for="sample4">Password</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-    </form>
+
+    <!-- <div class="newAccount hide">
+      <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="email" id="#">
+              <label class="mdl-textfield__label" for="sample3">Email</label>
+          </div>
+      </form>
+       Numeric Textfield with Floating Label
+      <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="password" pattern="-?[0-9]*(\.[0-9]+)?" id="#">
+              <label class="mdl-textfield__label" for="sample4">Password</label>
+              <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
+      </form>
+    </div> -->
 </div>
