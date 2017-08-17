@@ -17,6 +17,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     owner: {
       type: DataTypes.STRING,
       allowNull: false
@@ -25,15 +29,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    pricePerHour: {
+    price: {
       type: DataTypes.DECIMAL(6,2),
       allowNull: false
     },
-    outTimeStamp: {
+    from: {
       type: DataTypes.DATE,
       allowNull: true
     },
-    inTimeStamp: {
+    to: {
       type: DataTypes.DATE,
       allowNull: true
     },
