@@ -62,9 +62,12 @@ router.post("/api/goods", function(req, res) {
     db.Item.create({
         itemName: req.body.itemName,
         category: req.body.category,
+        description: req.body.description,
         owner: req.body.owner,
         location: req.body.location,
-        pricePerHour: req.body.pricePerHour,
+        price: req.body.price,
+        // from: req.body.from,
+        // to: req.body.to,
         itemPhoto: req.body.itemPhoto,
         UserId: req.body.UserId
     }).then(function(dbItems) {

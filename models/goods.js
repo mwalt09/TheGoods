@@ -1,10 +1,4 @@
-// Dependencies
-// npm install sequelize-mysql-timestamp
-// var sequelize = require("sequelize");
-
-// const TIMESTAMP = require("sequelize-mysql-timestamp")(sequelize);
-
-
+'use strict';
 
 // Creating Goods model
 module.exports = function(sequelize, DataTypes) {
