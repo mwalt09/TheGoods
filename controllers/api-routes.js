@@ -6,6 +6,7 @@ var express = require("express");
 // var router = express.Router();
 var router = require("./html-routes")
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 // Using the passport.authenticate middleware with our local strategy.
@@ -28,7 +29,8 @@ router.post("/api/signup", function(req, res) {
         email: req.body.email,
         address: req.body.address,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        UserId: req.body.id
     }).then(function() {
         console.log("redirecting");
         res.redirect(307, "/api/login");
@@ -57,14 +59,17 @@ router.get("/api/user_data", function(req, res) {
     }
 });
 
-
 //controller for item management
 router.post("/api/goods", function(req, res) {
-    db.Items.create({
+    console.log(req.body);
+    db.Item.create({
         itemName: req.body.itemName,
         category: req.body.category,
+        owner: req.body.username,
+        location: req.body.location,
         pricePerHour: req.body.pricePerHour,
-        itemPhoto: req.body.itemPhoto
+        itemPhoto: req.body.itemPhoto,
+        UserId: req.body.UserId
     }).then(function(dbItems) {
         res.json(dbItems);
     });
@@ -72,7 +77,7 @@ router.post("/api/goods", function(req, res) {
 
 // DELETE route for deleting Items
 router.delete("/api/goods/:id", function(req, res) {
-    db.Items.destroy({
+    db.Item.destroy({
         where: {
             id: req.params.id
         }
@@ -83,7 +88,7 @@ router.delete("/api/goods/:id", function(req, res) {
 
 // PUT route for updating items
 router.put("/api/goods", function(req, res) {
-    db.Items.update(
+    db.Item.update(
         req.body, {
             where: {
                 id: req.body.id
@@ -92,6 +97,29 @@ router.put("/api/goods", function(req, res) {
         res.json(dbItems);
     });
 });
+
+router.get("/itemMmgt",isAuthenticated, function(req, res){
+    db.Item.findAll({}).then(function(data) {
+    var hbsObject = {
+      items: data
+    };
+    res.render("itemMmgt", hbsObject);
+  });
+});
+
+router.get("/newItem",isAuthenticated, function(req, res){
+    db.Item.findOne({
+        where:{
+            id: req.body.id
+        }
+    }).then(function(data) {
+    var hbsObject = {
+      user: data
+    };
+    res.render("createItem", hbsObject);
+  });
+});
+
 
 //########################################
 
@@ -104,7 +132,7 @@ router.get("/api/goods", function(req, res) {
     if (req.query.item_Name) {
         query.itemName = req.query.item_Name;
     }
-    db.Items.findAll({
+    db.Item.findAll({
         where: query,
         include: [db.goods]
     }).then(function(dbItems) {
@@ -170,6 +198,21 @@ router.get("/api/goods", function(req, res) {
     }).then(function(dbItems) {
         res.json(dbItems);
     });
+});
+
+// Get item by availability
+router.get("/api/availability", function(req, res) {
+  // var query = {};
+  // if (req.query.availability) {
+  //   query.availability = req.query.availability;
+  // }
+  db.Item.findAll({
+    where: {
+      availability: true
+    }
+  }).then(function(dbItem) {
+    res.json(dbItem);
+  });
 });
 
 module.exports = router;

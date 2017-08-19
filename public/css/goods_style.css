@@ -141,9 +141,9 @@ p {
   width: 0 auto;
 }
 
-@media (min-width: 100px) and (max-width: 1280px) {
+@media (min-width: 100px) and (max-width: 1440px) {
   #map {
-  border: 1px solid yellow;
+  /*border: 1px solid yellow;*/
   width: 0 auto;
   height: 400px;
   margin-left: 7%;
