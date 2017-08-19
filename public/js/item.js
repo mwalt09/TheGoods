@@ -4,12 +4,12 @@ $(document).ready(function() {
   // Our new Item will go inside the itemContainer
   var $itemContainer = $(".item-container");
   // Adding event listeners for deleting, editing, and adding Items
-  $(document).on("click", "button.delete", deleteItems);
+  $(document).on("click", "button.delete", deleteItem);
   $(document).on("click", "button.complete", toggleComplete);
-  $(document).on("click", ".item", editItems);
-  $(document).on("keyup", ".item", finishEdit);
+  $(document).on("click", ".item", editItem);
+  // $(document).on("keyup", ".item", finishEdit);
   $(document).on("blur", ".item", cancelEdit);
-  $(document).on("submit", "#item-form", insertItems);
+  $(document).on("submit", "#item-form", insertItem);
 
   // Our initial Item array
   var items = [];

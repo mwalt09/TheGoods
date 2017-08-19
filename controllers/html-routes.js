@@ -53,8 +53,10 @@ router.get("/newUser", function(req, res) {
     res.render("newUser");
 });
 
-router.get("/itemMmgt", function(req, res){
-    res.render("itemMmgt");
+
+
+router.get("newItem", function(req, res) {
+    res.render("newItem");
 });
 //
 //
