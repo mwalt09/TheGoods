@@ -1,0 +1,22 @@
+    <table style = "color: red">
+  <tr>
+    <th>Item Name</th>
+    <th>Category</th> 
+    <th>Owner</th>
+    <th>Location</th>
+    <th>Price Per Hour</th>
+    <th>Item Photo</th>
+  </tr>
+  {{#each items}}
+    {{#unless this.availibility}}
+  <tr>
+    <td>{{this.itemName}}</td>
+    <td>{{this.category}}</td> 
+    <td>{{this.owner}}</td>
+    <td>{{this.location}}</td>
+    <td>{{this.pricePerHour}}</td>
+    <td><img src={{this.itemPhoto}} height="100px" width="100px"></td>
+  </tr>
+</table>
+    {{/unless}}
+  {{/each}}

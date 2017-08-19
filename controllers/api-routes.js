@@ -6,6 +6,7 @@ var express = require("express");
 // var router = express.Router();
 var router = require("./html-routes")
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 // Using the passport.authenticate middleware with our local strategy.
@@ -28,7 +29,8 @@ router.post("/api/signup", function(req, res) {
         email: req.body.email,
         address: req.body.address,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        UserId: req.body.id
     }).then(function() {
         console.log("redirecting");
         res.redirect(307, "/api/login");
@@ -59,6 +61,7 @@ router.get("/api/user_data", function(req, res) {
 
 //controller for item management
 router.post("/api/goods", function(req, res) {
+    console.log(req.body);
     db.Item.create({
         itemName: req.body.itemName,
         category: req.body.category,
@@ -97,6 +100,29 @@ router.put("/api/goods", function(req, res) {
         res.json(dbItems);
     });
 });
+
+router.get("/itemMmgt",isAuthenticated, function(req, res){
+    db.Item.findAll({}).then(function(data) {
+    var hbsObject = {
+      items: data
+    };
+    res.render("itemMmgt", hbsObject);
+  });
+});
+
+router.get("/newItem",isAuthenticated, function(req, res){
+    db.Item.findOne({
+        where:{
+            id: req.body.id
+        }
+    }).then(function(data) {
+    var hbsObject = {
+      user: data
+    };
+    res.render("createItem", hbsObject);
+  });
+});
+
 
 //########################################
 

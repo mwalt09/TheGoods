@@ -53,6 +53,11 @@ router.get("/newUser", function(req, res) {
     res.render("newUser");
 });
 
+
+
+router.get("newItem", function(req, res) {
+    res.render("newItem");
+});
 //
 //
 //   app.get("/login", function(req, res) {
