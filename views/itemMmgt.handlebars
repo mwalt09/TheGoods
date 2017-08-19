@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
   <h1>Their GOOD$</h1>
   <div id="tableS" class="table-editable">
@@ -91,3 +92,27 @@
   <p id="export"></p>
   <script type="text/javascript" src="/js/item.js"></script>
 </div>
+=======
+    <table style = "color: red">
+  <tr>
+    <th>Item Name</th>
+    <th>Category</th> 
+    <th>Owner</th>
+    <th>Location</th>
+    <th>Price Per Hour</th>
+    <th>Item Photo</th>
+  </tr>
+  {{#each items}}
+    {{#unless this.availibility}}
+  <tr>
+    <td>{{this.itemName}}</td>
+    <td>{{this.category}}</td> 
+    <td>{{this.owner}}</td>
+    <td>{{this.location}}</td>
+    <td>{{this.pricePerHour}}</td>
+    <td><img src={{this.itemPhoto}} height="100px" width="100px"></td>
+  </tr>
+</table>
+    {{/unless}}
+  {{/each}}
+>>>>>>> 14fae658a2143a0d40702951d853663ca4e28437
