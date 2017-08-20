@@ -61,15 +61,15 @@ router.get("/api/user_data", function(req, res) {
 
 //controller for item management
 router.post("/api/goods", function(req, res) {
-    console.log(req.body);
+    console.log(req.user);
     db.Item.create({
         itemName: req.body.itemName,
         category: req.body.category,
-        owner: req.body.username,
-        location: req.body.location,
+        owner: req.user.username,
+        location: req.user.address,
         pricePerHour: req.body.pricePerHour,
         itemPhoto: req.body.itemPhoto,
-        UserId: req.body.UserId
+        UserId: req.user.id
     }).then(function(dbItems) {
         res.json(dbItems);
     });

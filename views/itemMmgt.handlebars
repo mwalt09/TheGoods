@@ -9,14 +9,22 @@
   </tr>
   {{#each items}}
     {{#unless this.availibility}}
-  <tr>
+  <tr class = "allItemsTable">
     <td>{{this.itemName}}</td>
     <td>{{this.category}}</td> 
     <td>{{this.owner}}</td>
     <td>{{this.location}}</td>
     <td>{{this.pricePerHour}}</td>
     <td><img src={{this.itemPhoto}} height="100px" width="100px"></td>
+    <form action="/api/goods/{{this.id}}?_method=DELETE" method="POST">
+    
+      <input type="submit" name="Delete">
+
+    </form>
+    <!-- <button class="delete" id="{{this.id}}" href="">Delete</button> -->
   </tr>
+     {{/unless}}
+  {{/each}} 
 </table>
-    {{/unless}}
-  {{/each}}
+ 
+
