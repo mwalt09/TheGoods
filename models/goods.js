@@ -5,11 +5,11 @@ module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
     itemName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     description: {
       type: DataTypes.TEXT,
@@ -17,15 +17,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     owner: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     price: {
       type: DataTypes.DECIMAL(6,2),
-      allowNull: false
+      allowNull: true
     },
     from: {
       type: DataTypes.DATE,
@@ -40,18 +40,22 @@ module.exports = function(sequelize, DataTypes) {
     },
     itemPhoto: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     availability: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
+    },
+    rentee: {
+      type: DataTypes.INTEGER,
+      allowNull:true
     }
   });
 
   Item.associate = function(models) {
     Item.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };

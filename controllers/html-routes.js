@@ -55,9 +55,6 @@ router.get("/newUser", function(req, res) {
 
 
 
-router.get("newItem", function(req, res) {
-    res.render("newItem");
-});
 
 // router.get("/itemMmgt", function(req, res) {
 //     //Insert Sequelize Query Here
