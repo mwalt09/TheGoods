@@ -108,7 +108,6 @@ function geocodeAddress(resultsMap) {
       'address': address[i]
     }, function(results, status) {
       if (status === 'OK') {
-        console.log("Results: " + results[0].body);
         var marker = new google.maps.Marker({
           map: resultsMap,
           position: results[0].geometry.location
