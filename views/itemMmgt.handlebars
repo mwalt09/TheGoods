@@ -1,118 +1,49 @@
-<<<<<<< HEAD
-<div>
-  <h1>Their GOOD$</h1>
-  <div id="tableS" class="table-editable">
-    <table class="table">
-    <tr>
-      <th width="10%"><b>Owner</b></th>
-      <th width="15%"><b>Name</b></th>
-      <th width="20%"><b>Return Location</b></th>
-      <th width="10%"><b>Category</b></th>
-      <th width="10%"><b>Price Per Hr</b></th>
-      <th width="12%"><b>Checkout Time</b></th>
-      <th width="15%"><b>Cost</b></th>
-      <th width="9%"></th>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    <div class="rentedItems"></div>
-    <td>
-    <span class="item-return glyphicon glyphicon-transfer"></span>
-    </td>
-    </tr>
-  </table>
+<div class="demo-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header ">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row ">
+            <!-- Title -->
+            <span class="mdl-layout-title">THE GOOD$</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation -->
+            <!-- <nav class="mdl-navigation"> -->
+            <a class="mdl-navigation__link" id="search" href="/"><i class="material-icons">search</i></a>
+            <a class="mdl-navigation__link" id="homeButton" href="/itemMmgt"><i class="material-icons">home</i></a>
+            <a class="mdl-navigation__link" id="createItem" href="/newItem"><i class="material-icons">create</i></a>
+            <form action="/logout" method="GET">
+                <!-- <input > -->
+                <a class="mdl-navigation__link" id="logout" href="Logout" type="submit" value="Logout"><i class="material-icons">power_settings_new</i></a>
+            </form>
+            <!-- </nav> -->
+        </div>
+    </header>
+    <!-- <main class="mdl-layout__content">
+  </main> -->
 </div>
-
-
-<div>
-  <h1>My GOOD$</h1>
-  <div id="table" class="table-editable">
-    <table class="table">
-      <tr>
-        <th width="10%"><b>Availability</b></th>
-        <th width="18%"><b>Name</b></th>
-        <th width="25%"><b>Description</b></th>
-        <th width="10%"><b>Category</b></th>
-        <th width="12%"><b>Price Per Hr</b></th>
-        <th width="14%"><b>Checkout Time</b></th>
-        <th width="13%"><b>Last Check In</b></th>
-        <th width="5%"><b>Earned</b></th>
-        <span class="table-add glyphicon glyphicon-plus"></span>
-      </tr>
-      <tr>
-      
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td></td>
-        
-        <td><span class="add-photo glyphicon glyphicon-picture"></span></td>
-        <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-        
-        <td>
-            <span class="table-up glyphicon glyphicon-arrow-up"></span>
-            <span class="table-down glyphicon glyphicon-arrow-down"></span>
-        </td>
-      </tr>
-
-<!-- This is our clonable table line for adding new items-->
-      <tr class="hide">
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td></td>
-        
-        <td><span class="add-photo glyphicon glyphicon-picture"></span></td>
-        <td><span class="table-remove glyphicon glyphicon-remove"></span></td>
-        
-        <td>
-            <span class="table-up glyphicon glyphicon-arrow-up"></span>
-            <span class="table-down glyphicon glyphicon-arrow-down"></span>
-        </td>
-      </tr>
+<div class="containerIndex">
+    <table style="color: red">
+        <tr>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Owner</th>
+            <th>Location</th>
+            <th>Price Per Hour</th>
+            <th>Item Photo</th>
+        </tr>
+        {{#each items}} {{#unless this.availibility}}
+        <tr class="allItemsTable">
+            <td>{{this.itemName}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.location}}</td>
+            <td>{{this.price}}</td>
+            <td><img src={{this.itemPhoto}} height="100px" width="100px"></td>
+            <td>
+                <form id="form1" action="/api/goods/{{this.id}}?_method=DELETE" method="POST"></form>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" form="form1">Delete</button>
+            </td>
+            <!-- <button class="delete" id="{{this.id}}" href="">Delete</button> -->
+        </tr>
+        {{/unless}} {{/each}}
     </table>
-  </div>
-  
-  <button id="export-btn" class="btn btn-primary">Export Data</button>
-  <p id="export"></p>
-  <script type="text/javascript" src="/js/item.js"></script>
 </div>
-=======
-    <table style = "color: red">
-  <tr>
-    <th>Item Name</th>
-    <th>Category</th> 
-    <th>Owner</th>
-    <th>Location</th>
-    <th>Price Per Hour</th>
-    <th>Item Photo</th>
-  </tr>
-  {{#each items}}
-    {{#unless this.availibility}}
-  <tr>
-    <td>{{this.itemName}}</td>
-    <td>{{this.category}}</td> 
-    <td>{{this.owner}}</td>
-    <td>{{this.location}}</td>
-    <td>{{this.pricePerHour}}</td>
-    <td><img src={{this.itemPhoto}} height="100px" width="100px"></td>
-  </tr>
-</table>
-    {{/unless}}
-  {{/each}}
->>>>>>> 14fae658a2143a0d40702951d853663ca4e28437
+

@@ -22,45 +22,17 @@ body {
   border-radius: 20px;
 }
 
-/*****************USER ITEM MANAGEMENT************/
-@import "compass/css3";
 
-.table-editable {
-  position: relative;
-  
-  .glyphicon {
-    font-size: 20px;
-  }
+#textarea1 {
+
 }
 
-.table-remove {
-  color: #700;
-  cursor: pointer;
-  
-  &:hover {
-    color: #f00;
-  }
-}
-
-.table-up, .table-down {
-  color: #007;
-  cursor: pointer;
-  
-  &:hover {
-    color: #00f;
-  }
-}
-
-.table-add {
-  color: #070;
-  cursor: pointer;
-  position: absolute;
-  top: 8px;
-  right: 0;
-  
-  &:hover {
-    color: #0b0;
-  }
+.containerItemMmgt {
+  width: 0 auto;
+  height: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 40px;
 }
 
 
@@ -135,7 +107,7 @@ p {
 		margin-top: 20px;
 }
 
-@media (min-width:400px) and (max-width: 1024px) {
+@media (min-width:400px) and (max-width: 1440px) {
 	i.material-icons {
 		/*padding:10px;*/
 		/*margin:5px;*/
@@ -174,6 +146,9 @@ p {
   margin-top: 80px;
 
   width: 0 auto;
+
+  height: 0 auto;
+  border: 1px solid blue;
 }
 
 @media (min-width: 100px) and (max-width: 1440px) {
@@ -199,11 +174,6 @@ p {
 }
 /********* End of item cards section ************/
 
-.containerIndex {
-  width: 0 auto;
-  height: 0 auto;
-  border: 1px solid blue;
-}
 
 
 .descriptionBox {
