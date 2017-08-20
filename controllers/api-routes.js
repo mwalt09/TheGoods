@@ -125,11 +125,7 @@ router.get("/newItem",isAuthenticated, function(req, res){
   });
 });
 
-router.get("/", isAuthenticated, function(req, res) {
-  db.Item.findAll({}).then(function(data) {
-    console.log(data);
-  });
-});
+
 
 
 //########################################
