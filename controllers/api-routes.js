@@ -99,36 +99,53 @@ router.put("/api/goods", function(req, res) {
     });
 });
 
-router.get("/itemMmgt",isAuthenticated, function(req, res){
+router.get("/itemMmgt", isAuthenticated, function(req, res) {
+    db.Item.findAll({
+        where: {
+            UserId: req.user.id
+
+        }
+    }).then(function(data) {
+        var hbsObject = {
+            items: data
+        };
+         res.render("itemMmgt", hbsObject);
+    });
+
+   
+});
+
+
+router.get("/rentedItems",isAuthenticated, function(req, res){
     db.Item.findAll({
         where:{
-            UserId: req.user.id
+            rentee: req.user.id
         }
     }).then(function(data) {
     var hbsObject = {
-      items: data
+      rentedItems: data
     };
-    res.render("itemMmgt", hbsObject);
+    res.render("rentedItems", hbsObject);
   });
 });
 
-router.get("/newItem",isAuthenticated, function(req, res){
+router.get("/newItem", isAuthenticated, function(req, res) {
     db.Item.findOne({
-        where:{
+        where: {
             id: req.body.id
         }
     }).then(function(data) {
-    var hbsObject = {
-      user: data
-    };
-    res.render("createItem", hbsObject);
-  });
+        var hbsObject = {
+            user: data
+        };
+        res.render("createItem", hbsObject);
+    });
 });
 
 router.get("/", isAuthenticated, function(req, res) {
-  db.Item.findAll({}).then(function(data) {
-    console.log(data);
-  });
+    db.Item.findAll({}).then(function(data) {
+        console.log(data);
+    });
 });
 
 
@@ -213,17 +230,17 @@ router.get("/api/goods", function(req, res) {
 
 // Get item by availability
 router.get("/api/availability", function(req, res) {
-  // var query = {};
-  // if (req.query.availability) {
-  //   query.availability = req.query.availability;
-  // }
-  db.Item.findAll({
-    where: {
-      availability: true
-    }
-  }).then(function(dbItem) {
-    res.json(dbItem);
-  });
+    // var query = {};
+    // if (req.query.availability) {
+    //   query.availability = req.query.availability;
+    // }
+    db.Item.findAll({
+        where: {
+            availability: true
+        }
+    }).then(function(dbItem) {
+        res.json(dbItem);
+    });
 });
 
 module.exports = router;
