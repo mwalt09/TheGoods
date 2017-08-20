@@ -147,21 +147,6 @@ var id = 0;
 var placeLoc;
 var isOpen;
 
-// function createMarker(place) {
-//   placeLoc = place.geometry.location;
-//   var marker = new google.maps.Marker({
-//     map: map,
-//     animation: google.maps.Animation.DROP,
-//     position: place.geometry.location
-//   });
-//
-//   google.maps.event.addListener(marker, 'click', function() {
-//     destination = place.geometry.location;
-//     infowindow.setContent(contentString);
-//     infowindow.open(map, this);
-//   });
-// }
-
 var travelMode = 'DRIVING';
 
 function getDirections() {
