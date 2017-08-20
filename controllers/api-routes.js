@@ -135,10 +135,13 @@ router.get("/api/goods", function(req,res){
 });
 
 router.get("/itemMmgt",isAuthenticated, function(req, res){
+    console.log("\n");
+    console.log(req.user.id);
+    console.log("\n");
+
     db.Item.findAll({
         where: {
             UserId: req.user.id
-
         }
     }).then(function(data) {
         var hbsObject = {
@@ -146,8 +149,6 @@ router.get("/itemMmgt",isAuthenticated, function(req, res){
         };
          res.render("itemMmgt", hbsObject);
     });
-
-   
 });
 
 
