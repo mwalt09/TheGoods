@@ -24,7 +24,17 @@ body {
   border-radius: 20px;
 }
 
+#textarea1 {
 
+}
+
+.containerItemMngt {
+  width: 0 auto;
+  height: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 40px;
+}
 
 
 
@@ -98,7 +108,7 @@ p {
 		margin-top: 20px;
 }
 
-@media (min-width:400px) and (max-width: 1024px) {
+@media (min-width:400px) and (max-width: 1440px) {
 	i.material-icons {
 		/*padding:10px;*/
 		/*margin:5px;*/
