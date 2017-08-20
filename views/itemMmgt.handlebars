@@ -16,11 +16,8 @@
     <td>{{this.location}}</td>
     <td>{{this.pricePerHour}}</td>
     <td><img src={{this.itemPhoto}} height="100px" width="100px"></td>
-    <form action="/api/goods/{{this.id}}?_method=DELETE" method="POST">
-    
-      <input type="submit" name="Delete">
-
-    </form>
+    <td><form id="form1" action="/api/goods/{{this.id}}?_method=DELETE" method="POST"></form>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" form="form1">Delete</button></td>
     <!-- <button class="delete" id="{{this.id}}" href="">Delete</button> -->
   </tr>
      {{/unless}}
