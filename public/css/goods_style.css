@@ -25,7 +25,15 @@ body {
 }
 
 #textarea1 {
-  
+
+}
+
+.containerItemMngt {
+  width: 0 auto;
+  height: 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 40px;
 }
 
 
